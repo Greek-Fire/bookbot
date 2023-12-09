@@ -23,7 +23,20 @@ def letter_count(file_path):
     char_dict = dict(sorted(char_dict.items()))
     return char_dict
 
+def get_report(letter_dict):
+    
+    wc = word_count(file_path)
+
+    print(f'\n--- Begin report of {file_path} ---\n')
+    print(f'Total word count: {wc}')
+
+    for key, value in letter_dict.items():
+        if key.isalpha():
+            print(f"The '{key}' character was found '{value}' times")
+
+    print(f'\n--- End report of {file_path} ---\n')
 
 file_path = './books/frankenstein.txt'
-print(word_count(file_path))
-print(letter_count(file_path))
+
+letter_dict = letter_count(file_path)
+get_report(letter_dict)
